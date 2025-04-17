@@ -1,23 +1,37 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
 import SearchBar from './components/SearchBar';
-import GameList from './components/GameList';
+import GameList from './components/GameList/GameList';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [gameList, setGameList] = useState([]);
+  const [noResults, setNoResults] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const API_KEY = import.meta.env.VITE_RAWG_API_KEY;
 
   const handleSearch = async (term: string) => {
     setSearchTerm(term);
+    setIsLoading(true);
+    setNoResults(false);
+    setError(null);
+
     try {
       const res = await fetch(
-        `https://api.rawg.io/api/games?key=${API_KEY}&search=${searchTerm}`
+        `https://api.rawg.io/api/games?key=${API_KEY}&search=${term}`
       );
       const data = await res.json();
-      setGameList(data.results);
+      if (data.results.length === 0) {
+        setNoResults(true);
+        setGameList([]);
+      } else {
+        setGameList(data.results);
+      }
     } catch (err) {
-      console.log(err.message);
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -26,7 +40,10 @@ function App() {
       <div>
         <h1>Game stuff</h1>
         <SearchBar onSearch={handleSearch} />
-        {gameList !== null && <GameList gameList={gameList} />}
+        {isLoading && <p>Loading...</p>}
+        {error && <p>Error: {error}</p>}
+        {noResults && <p>No results found. Try a different search term.</p>}
+        {gameList.length > 0 && <GameList gameList={gameList} />}
       </div>
     </>
   );

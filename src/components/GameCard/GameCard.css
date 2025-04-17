@@ -1,0 +1,11 @@
+.game-list-item {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.game-list-item-cover-art {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
