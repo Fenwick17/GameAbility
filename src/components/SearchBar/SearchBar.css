@@ -1,0 +1,11 @@
+.search-bar-container {
+  align-items: end;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.search-bar label {
+  display: block;
+  text-align: left;
+}

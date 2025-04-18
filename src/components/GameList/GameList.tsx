@@ -10,12 +10,13 @@ interface Game {
 
 interface GameListProps {
   gameList: Game[];
+  searchTerm: string;
 }
 
-const GameList: React.FC<GameListProps> = ({ gameList }) => {
+const GameList: React.FC<GameListProps> = ({ gameList, searchTerm }) => {
   return (
     <>
-      <h2>Search results</h2>
+      <h2>Results for "{searchTerm}"</h2>
       <ul className="game-list">
         {gameList.map((game) => (
           <GameCard key={game.id} game={game} />

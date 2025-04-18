@@ -1,9 +1,12 @@
+import { Link } from 'react-router';
 import './GameCard.css';
 
 const GameCard = ({ game }) => {
   return (
     <li className="game-list-item">
-      <p>{game.name}</p>
+      <p>
+        <Link to={`/game/${game.id}`}>{game.name}</Link>
+      </p>
       <p>Release date: {game.released}</p>
       <img
         src={game.background_image}
