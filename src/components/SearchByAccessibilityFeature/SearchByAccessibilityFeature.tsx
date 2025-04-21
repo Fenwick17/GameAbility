@@ -11,51 +11,23 @@ interface AccessibilityFilter {
 
 interface SearchByFeatureProps {
   accessibilityFilters: AccessibilityFilter[];
+  searchAccessibilityFilters: (
+    e: React.FormEvent,
+    accessibilityFilters: AccessibilityFilter[]
+  ) => void;
 }
 
 const SearchByAccessibilityFeature: React.FC<SearchByFeatureProps> = ({
   accessibilityFilters,
+  searchAccessibilityFilters,
+  selectedFilters,
 }) => {
-  const searchAccessibilityFilters = (e: React.FormEvent) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget as HTMLFormElement);
-    const selectedFilters: { category: string; key: string }[] = [];
-
-    for (const [key, value] of formData.entries()) {
-      const parentCategory = Object.values(accessibilityFilters).find(
-        (category) => category.features.some((feature) => feature.key === key)
-      );
-
-      if (parentCategory) {
-        selectedFilters.push({
-          category: parentCategory.category,
-          key: value,
-        });
-      }
-    }
-    findGamesByFilter(selectedFilters);
-  };
-
-  const findGamesByFilter = (selectedFilters) => {
-    const filteredGames = mockGamesData.filter((game) =>
-      selectedFilters.every((filter) =>
-        game.accessibility.some(
-          (category) =>
-            category.category.toLowerCase() === filter.category.toLowerCase() &&
-            category.features.some(
-              (feature) =>
-                feature.key.toLowerCase() === filter.key.toLowerCase()
-            )
-        )
-      )
-    );
-    return filteredGames;
-  };
-
   return (
     <>
       <h2>Search by feature</h2>
-      <form onSubmit={searchAccessibilityFilters}>
+      <form
+        onSubmit={(e) => searchAccessibilityFilters(e, accessibilityFilters)}
+      >
         {Object.entries(accessibilityFilters).map(
           ([categoryKey, categoryData]) => (
             <div key={categoryKey} className="form-group">

@@ -1,4 +1,4 @@
-export const dataAccessibilityFilters = {
+export const accessibilityFilters = {
   visual: {
     category: 'Visual',
     features: [
