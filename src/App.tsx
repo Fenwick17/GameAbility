@@ -6,37 +6,11 @@ import GameList from './components/GameList/GameList';
 import SearchByAccessibilityFeature from './components/SearchByAccessibilityFeature/SearchByAccessibilityFeature';
 import { Routes, Route } from 'react-router';
 import GameDetail from './pages/GameDetail';
-import { Game } from './test/mockGamesData';
-
-interface SelectedFilter {
-  category: 'visual' | 'controls' | 'audio' | 'cognitive' | 'gameplay';
-  key: string;
-}
-
-export const filterGames = (
-  games: Game[],
-  filters: SelectedFilter[]
-): Game[] => {
-  if (filters.length === 0) {
-    return [];
-  }
-
-  return games.filter((game) =>
-    filters.every((filter) =>
-      game.accessibility.some(
-        (category) =>
-          category.category === filter.category &&
-          category.features.some((feature) => feature.key === filter.key)
-      )
-    )
-  );
-};
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [gameList, setGameList] = useState([]);
   const [noResults, setNoResults] = useState(false);
-  const [filters, setFilters] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const API_KEY = import.meta.env.VITE_RAWG_API_KEY;
