@@ -1,6 +1,6 @@
-export const accessibilityFilters = {
+export const dataAccessibilityFilters = {
   visual: {
-    label: 'Visual',
+    category: 'Visual',
     features: [
       {
         name: 'Colorblind Mode',
@@ -15,7 +15,7 @@ export const accessibilityFilters = {
     ],
   },
   controls: {
-    label: 'Controls',
+    category: 'Controls',
     features: [
       {
         name: 'Remappable Controls',
@@ -30,7 +30,7 @@ export const accessibilityFilters = {
     ],
   },
   audio: {
-    label: 'Audio',
+    category: 'Audio',
     features: [
       {
         name: 'Narration',
@@ -40,7 +40,7 @@ export const accessibilityFilters = {
     ],
   },
   gameplay: {
-    label: 'Gameplay',
+    category: 'Gameplay',
     features: [
       {
         name: 'Difficulty Options',

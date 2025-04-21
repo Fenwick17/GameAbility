@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import { accessibilityFilters } from './data/accessibilityFilters';
+import { dataAccessibilityFilters } from './data/dataAccessibilityFilters';
 import SearchBar from './components/SearchBar/SearchBar';
 import GameList from './components/GameList/GameList';
 import SearchByAccessibilityFeature from './components/SearchByAccessibilityFeature/SearchByAccessibilityFeature';
@@ -13,6 +13,7 @@ function App() {
   const [noResults, setNoResults] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [accessibilityFilters, setAccessibilityFilters] = useState([]);
   const API_KEY = import.meta.env.VITE_RAWG_API_KEY;
 
   const handleSearch = async (term: string) => {
@@ -49,7 +50,7 @@ function App() {
               <h1>GameAbility</h1>
               <SearchBar onSearch={handleSearch} />
               <SearchByAccessibilityFeature
-                accessibilityFilters={accessibilityFilters}
+                accessibilityFilters={dataAccessibilityFilters}
               />
               {isLoading && <p>Loading...</p>}
               {error && <p>Error: {error}</p>}

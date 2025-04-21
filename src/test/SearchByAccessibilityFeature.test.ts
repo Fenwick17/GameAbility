@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest';
 import { mockGamesData } from './mockGamesData';
-import { filterGames } from '../App';
+import { filterGames } from '../utils/filterGames';
 
 interface SelectedFilter {
   category: string;
