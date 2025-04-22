@@ -1,4 +1,14 @@
-export const accessibilityFilters = {
+interface AccessibilityFeature {
+  key: string;
+  name: string;
+}
+
+interface AccessibilityCategory {
+  category: string;
+  features: AccessibilityFeature[];
+}
+
+export const accessibilityFormFilters: Record<string, AccessibilityCategory> = {
   visual: {
     category: 'Visual',
     features: [

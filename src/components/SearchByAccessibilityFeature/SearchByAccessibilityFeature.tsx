@@ -10,7 +10,7 @@ interface AccessibilityFilter {
 }
 
 interface SearchByFeatureProps {
-  accessibilityFilters: AccessibilityFilter[];
+  accessibilityFormFilters: AccessibilityFilter[];
   searchAccessibilityFilters: (
     e: React.FormEvent,
     accessibilityFilters: AccessibilityFilter[]
@@ -18,17 +18,18 @@ interface SearchByFeatureProps {
 }
 
 const SearchByAccessibilityFeature: React.FC<SearchByFeatureProps> = ({
-  accessibilityFilters,
+  accessibilityFormFilters,
   searchAccessibilityFilters,
-  selectedFilters,
 }) => {
   return (
     <>
       <h2>Search by feature</h2>
       <form
-        onSubmit={(e) => searchAccessibilityFilters(e, accessibilityFilters)}
+        onSubmit={(e) =>
+          searchAccessibilityFilters(e, accessibilityFormFilters)
+        }
       >
-        {Object.entries(accessibilityFilters).map(
+        {Object.entries(accessibilityFormFilters).map(
           ([categoryKey, categoryData]) => (
             <div key={categoryKey} className="form-group">
               <fieldset>

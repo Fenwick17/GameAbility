@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import './App.css';
-import { accessibilityFilters } from './data/accessibilityFilters';
+import { accessibilityFormFilters } from './data/accessibilityFormFilters';
 import SearchBar from './components/SearchBar/SearchBar';
 import GameList from './components/GameList/GameList';
 import SearchByAccessibilityFeature from './components/SearchByAccessibilityFeature/SearchByAccessibilityFeature';
 import { Routes, Route } from 'react-router';
 import GameDetail from './pages/GameDetail';
 import { mockGamesData } from './test/mockGamesData';
+import { Game } from './types/gamesData';
+import AccessibilityGameList from './components/AccessibilityGameList/AccessibilityGameList';
 
 interface SelectedFilter {
   category: string;
@@ -20,7 +22,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [selectedFilters, setSelectedFilters] = useState<SelectedFilter[]>([]);
-  const [filteredGames, setFilteredGames] = useState([]);
+  const [filteredGames, setFilteredGames] = useState<Game[]>([]);
   const API_KEY = import.meta.env.VITE_RAWG_API_KEY;
 
   const handleSearch = async (term: string) => {
@@ -53,7 +55,7 @@ function App() {
     const newSelectedFilters: SelectedFilter[] = [];
 
     for (const [key, value] of formData.entries()) {
-      const parentCategory = Object.values(accessibilityFilters).find(
+      const parentCategory = Object.values(accessibilityFormFilters).find(
         (category) => category.features.some((feature) => feature.key === key)
       );
 
@@ -64,7 +66,6 @@ function App() {
         });
       }
     }
-    console.log(newSelectedFilters);
     setSelectedFilters(newSelectedFilters);
     findGamesByFilter(newSelectedFilters);
   };
@@ -82,7 +83,6 @@ function App() {
         )
       )
     );
-    console.log(filtered);
     setFilteredGames(filtered);
   };
 
@@ -96,9 +96,8 @@ function App() {
               <h1>GameAbility</h1>
               <SearchBar onSearch={handleSearch} />
               <SearchByAccessibilityFeature
-                accessibilityFilters={accessibilityFilters}
+                accessibilityFormFilters={accessibilityFormFilters}
                 searchAccessibilityFilters={searchAccessibilityFilters}
-                selectedFilters={selectedFilters}
               />
               {isLoading && <p>Loading...</p>}
               {error && <p>Error: {error}</p>}
@@ -107,6 +106,9 @@ function App() {
               )}
               {gameList.length > 0 && (
                 <GameList gameList={gameList} searchTerm={searchTerm} />
+              )}
+              {filteredGames.length > 0 && (
+                <AccessibilityGameList accessibilityGameList={filteredGames} />
               )}
             </div>
           }
