@@ -1,3 +1,5 @@
+import './GameDetails.css';
+
 interface Platform {
   platform: {
     name: string;
@@ -21,7 +23,11 @@ interface GameDetailsProps {
 const GameDetails: React.FC<GameDetailsProps> = ({ game }) => {
   return (
     <>
-      <img src={game.background_image} alt={`Cover image for ${game.name}`} />
+      <img
+        className="game-image"
+        src={game.background_image}
+        alt={`Cover image for ${game.name}`}
+      />
       <h2>{game.name}</h2>
       <p>{game.released}</p>
       <p>{game.rating}</p>
