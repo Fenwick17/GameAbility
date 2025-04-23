@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import GameDetails from '../components/GameDetails/GameDetails';
 import { supabase } from '../lib/supabaseClient';
+import AccessibilityGameDetails from '../components/GameDetails/AccessibilityGameDetails';
+import AddAccessibilityFeaturesForm from '../components/AddAccessibilityFeaturesForm/AddAccessibilityFeaturesForm';
 
 function GameDetail() {
   const { id } = useParams();
@@ -51,9 +53,11 @@ function GameDetail() {
       {gameDetails && <GameDetails game={gameDetails} />}
       <h2>Accessibility features</h2>
       {gameAccessibilityDetails ? (
-        <p>Show game details</p>
+        <AccessibilityGameDetails
+          accessibilityDetails={gameAccessibilityDetails}
+        />
       ) : (
-        <p>No features found</p>
+        <AddAccessibilityFeaturesForm />
       )}
     </div>
   );
