@@ -9,12 +9,6 @@ import GameDetail from './pages/GameDetail';
 import { mockGamesData } from './test/mockGamesData';
 import { Game } from './types/gamesData';
 import AccessibilityGameList from './components/AccessibilityGameList/AccessibilityGameList';
-import { createClient } from '@supabase/supabase-js';
-
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-const supabase = createClient(`${supabaseUrl}`, `${supabaseKey}`);
 
 interface SelectedFilter {
   category: string;

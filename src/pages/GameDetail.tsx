@@ -1,11 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import GameDetails from '../components/GameDetails/GameDetails';
-import { createClient } from '@supabase/supabase-js';
-
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-const supabase = createClient(`${supabaseUrl}`, `${supabaseKey}`);
+import { supabase } from '../lib/supabaseClient';
 
 function GameDetail() {
   const { id } = useParams();
