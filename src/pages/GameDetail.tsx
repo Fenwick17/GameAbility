@@ -52,13 +52,12 @@ function GameDetail() {
       {isLoading && <p>Loading...</p>}
       {gameDetails && <GameDetails game={gameDetails} />}
       <h2>Accessibility features</h2>
-      {gameAccessibilityDetails ? (
+      {gameAccessibilityDetails && (
         <AccessibilityGameDetails
           accessibilityDetails={gameAccessibilityDetails}
         />
-      ) : (
-        <AddAccessibilityFeaturesForm />
       )}
+      <AddAccessibilityFeaturesForm game={gameDetails} />
     </div>
   );
 }
