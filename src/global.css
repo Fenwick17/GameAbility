@@ -33,3 +33,17 @@ input {
 a {
   color: #fff;
 }
+
+label {
+  display: block;
+}
+
+select {
+  height: 40px;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
