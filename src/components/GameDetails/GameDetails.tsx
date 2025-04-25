@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import './GameDetails.css';
 
 interface Platform {
@@ -21,17 +22,19 @@ interface GameDetailsProps {
 }
 
 const GameDetails: React.FC<GameDetailsProps> = ({ game }) => {
+  const formattedDate = format(new Date(game.released), 'dd MMMM yyyy');
+
   return (
     <>
-      <img
+      <h2>{game.name}</h2>
+      <p>{formattedDate}</p>
+      {/* <img
         className="game-image"
         src={game.background_image}
         alt={`Cover image for ${game.name}`}
-      />
-      <h2>{game.name}</h2>
-      <p>{game.released}</p>
-      <p>{game.rating}</p>
-      <p>{game.description}</p>
+      /> */}
+      {/* <p>{game.rating}</p> */}
+      {/* <p>{game.description}</p> */}
       <ul>
         {game.platforms.map((platform) => (
           <li key={platform.platform.name}>{platform.platform.name}</li>

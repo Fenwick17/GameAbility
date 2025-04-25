@@ -30,19 +30,19 @@ const AddAccessibilityFeaturesForm = ({ game }) => {
       <h3>No accessibility features found</h3>
       <p>Add features</p>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="form-group">
           <label htmlFor="category">Category</label>
           <select id="category" name="category">
             <option value="visual">Visual</option>
           </select>
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="feature">Feature</label>
           <select id="feature" name="feature">
             <option value="colourblind_mode">Colourblind mode</option>
           </select>
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="level">Level</label>
           <select id="level" name="level">
             <option value="level">Basic</option>
