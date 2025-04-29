@@ -1,19 +1,30 @@
+@import '@fontsource/jost';
+
 * {
   font-size: 19px;
   box-sizing: border-box;
+}
+
+body {
+  font-family: 'Jost', sans-serif;
+  background-color: #1d1d36;
+  color: #fff;
+  height: 100vh;
 }
 
 h1 {
   font-size: 3rem;
 }
 
-body {
-  background-color: #1d1d36;
-  color: #fff;
-  height: 100vh;
+h2 {
+  font-size: 2rem;
 }
 
-button {
+h3 {
+  font-size: 1.5rem;
+}
+
+.primary-button {
   background-color: #8b5cf6;
   border-radius: 10px;
   color: #fff;
@@ -32,16 +43,28 @@ input {
 
 a {
   color: #fff;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:focus {
+    background-color: yellow;
+    color: black;
+  }
 }
 
 label {
   display: block;
+  margin-bottom: 5px;
 }
 
 select {
   height: 40px;
   background-color: white;
-  border: 1px solid black;
+  border: 2px solid black;
+  min-width: 11rem;
+  max-width: 100%;
 }
 
 .form-group {

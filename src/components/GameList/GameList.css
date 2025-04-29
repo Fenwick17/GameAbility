@@ -3,6 +3,7 @@
   grid-template-columns: 1fr;
   gap: 1rem;
   list-style: none;
+  padding: 0;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);

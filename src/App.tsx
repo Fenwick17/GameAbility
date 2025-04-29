@@ -9,6 +9,7 @@ import GameDetail from './pages/GameDetail';
 import { mockGamesData } from './test/mockGamesData';
 import { Game } from './types/gamesData';
 import AccessibilityGameList from './components/AccessibilityGameList/AccessibilityGameList';
+import Header from './components/Header/Header';
 
 interface SelectedFilter {
   category: string;
@@ -93,7 +94,7 @@ function App() {
           path="/"
           element={
             <div>
-              <h1>GameAbility</h1>
+              <Header />
               <SearchBar onSearch={handleSearch} />
               <SearchByAccessibilityFeature
                 accessibilityFormFilters={accessibilityFormFilters}

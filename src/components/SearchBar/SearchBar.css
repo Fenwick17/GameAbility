@@ -1,7 +1,6 @@
 .search-bar-container {
   align-items: end;
   display: flex;
-  justify-content: center;
   gap: 1rem;
 }
 

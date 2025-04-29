@@ -1,0 +1,9 @@
+.accessibility-game-details__submission {
+  padding: 1rem;
+  border: 2px solid white;
+  border-radius: 15px;
+
+  .accessibility-game-details__submission-header {
+    margin-top: 0;
+  }
+}

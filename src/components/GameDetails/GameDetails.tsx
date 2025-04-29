@@ -26,7 +26,7 @@ const GameDetails: React.FC<GameDetailsProps> = ({ game }) => {
 
   return (
     <>
-      <h2>{game.name}</h2>
+      <h1>{game.name}</h1>
       <p>{formattedDate}</p>
       {/* <img
         className="game-image"

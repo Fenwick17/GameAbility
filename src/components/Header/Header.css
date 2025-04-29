@@ -1,0 +1,21 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .header-home,
+  .header-subpage {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .header-home {
+    h1 {
+      margin-bottom: 0;
+    }
+  }
+
+  .header-subpage a {
+    font-size: 3rem;
+  }
+}
