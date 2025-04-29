@@ -49,7 +49,9 @@ const SearchByAccessibilityFeature: React.FC<SearchByFeatureProps> = ({
             </div>
           )
         )}
-        <button type="submit">Search</button>
+        <button className="primary-button" type="submit">
+          Search
+        </button>
       </form>
     </>
   );

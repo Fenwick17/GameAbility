@@ -4,6 +4,7 @@ import GameDetails from '../components/GameDetails/GameDetails';
 import { supabase } from '../lib/supabaseClient';
 import AccessibilityGameDetails from '../components/GameDetails/AccessibilityGameDetails';
 import AddAccessibilityFeaturesForm from '../components/AddAccessibilityFeaturesForm/AddAccessibilityFeaturesForm';
+import Header from '../components/Header/Header';
 
 function GameDetail() {
   const { id } = useParams();
@@ -31,15 +32,14 @@ function GameDetail() {
 
     const fetchAccessibilityGameDetails = async (id: string) => {
       const { data, error } = await supabase
-        .from('accessibility_games')
+        .from('accessibility_submissions')
         .select('*')
         .eq('rawg_id', id);
 
       if (error) {
         console.error('Error fetching game details:', error);
       } else {
-        console.log(data);
-        setGameAccessibilityDetails(data[0]);
+        setGameAccessibilityDetails(data);
       }
     };
 
@@ -48,7 +48,7 @@ function GameDetail() {
 
   return (
     <div>
-      <h1>Game details</h1>
+      <Header />
       {isLoading && <p>Loading...</p>}
       {gameDetails && <GameDetails game={gameDetails} />}
       <h2>Accessibility features</h2>
@@ -57,7 +57,9 @@ function GameDetail() {
           accessibilityDetails={gameAccessibilityDetails}
         />
       )}
+      {/* TODO: SHOW IF AUTHED */}
       <AddAccessibilityFeaturesForm game={gameDetails} />
+      {/* TODO: SHOW LOGIN IF NOT AUTHED */}
     </div>
   );
 }

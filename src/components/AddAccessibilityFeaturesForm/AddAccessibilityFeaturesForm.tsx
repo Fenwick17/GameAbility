@@ -5,7 +5,7 @@ const AddAccessibilityFeaturesForm = ({ game }) => {
     e.preventDefault();
 
     const { error: insertError } = await supabase
-      .from('accessibility_games')
+      .from('accessibility_submissions')
       .insert({
         rawg_id: game.id,
         name: game.name,
@@ -27,8 +27,7 @@ const AddAccessibilityFeaturesForm = ({ game }) => {
   };
   return (
     <>
-      <h3>No accessibility features found</h3>
-      <p>Add features</p>
+      <h2>Add features</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="category">Category</label>
@@ -45,10 +44,10 @@ const AddAccessibilityFeaturesForm = ({ game }) => {
         <div className="form-group">
           <label htmlFor="level">Level</label>
           <select id="level" name="level">
-            <option value="level">Basic</option>
+            <option value="basic">Basic</option>
           </select>
         </div>
-        <button>Submit</button>
+        <button className="primary-button">Submit</button>
       </form>
     </>
   );
