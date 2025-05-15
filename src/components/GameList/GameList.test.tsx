@@ -36,6 +36,6 @@ describe("GameList", () => {
         <GameList gameList={mockGames} searchTerm="Game" />
       </MemoryRouter>
     );
-    expect(screen.getAllByTestId("game-list")).toHaveLength(2);
+    expect(screen.getAllByTestId("game-card")).toHaveLength(2);
   });
 });

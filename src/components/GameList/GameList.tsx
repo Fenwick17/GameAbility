@@ -1,11 +1,12 @@
-import GameCard from '../GameCard/GameCard';
-import './GameList.css';
+import GameCard from "../GameCard/GameCard";
+import "./GameList.css";
 
 interface Game {
   id: number;
   name: string;
   releaseDate: string;
   background_image: string;
+  metacritic: string;
 }
 
 interface GameListProps {
