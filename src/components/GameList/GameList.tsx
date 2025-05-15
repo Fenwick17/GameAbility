@@ -16,8 +16,8 @@ interface GameListProps {
 const GameList: React.FC<GameListProps> = ({ gameList, searchTerm }) => {
   return (
     <>
-      <h2>Results for "{searchTerm}"</h2>
-      <ul className="game-list">
+      <h2 data-testid="search-results-heading">Results for "{searchTerm}"</h2>
+      <ul data-testid="game-list" className="game-list">
         {gameList.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}
