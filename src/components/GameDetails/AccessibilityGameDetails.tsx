@@ -1,8 +1,8 @@
-import { supabase } from '../../lib/supabaseClient';
-import { getVotes } from '../../services/voteService';
-import { handleVote } from '../../utils/voteLogic';
-import './AccessibilityGameDetails.css';
-import { useEffect, useState } from 'react';
+import { supabase } from "../../lib/supabaseClient";
+import { getVotes } from "../../services/voteService";
+import { handleVote } from "../../utils/voteLogic";
+import "./AccessibilityGameDetails.css";
+import { useEffect, useState } from "react";
 
 interface VoteCounts {
   upvotes: number;
@@ -33,7 +33,7 @@ const AccessibilityGameDetails: React.FC<AccessibilityGameDetailsProps> = ({
   accessibilityDetails,
 }) => {
   const [votes, setVotes] = useState<VoteState>({});
-  const userId = 'MOCK_USER_ID';
+  const userId = "MOCK_USER_ID";
 
   useEffect(() => {
     const fetchAllVotes = async () => {
@@ -45,7 +45,6 @@ const AccessibilityGameDetails: React.FC<AccessibilityGameDetailsProps> = ({
           downvotes,
         };
       }
-      console.log('Votes data before setting state: ', votesData);
       setVotes(votesData);
     };
 
@@ -60,13 +59,13 @@ const AccessibilityGameDetails: React.FC<AccessibilityGameDetailsProps> = ({
             {detail.category}
           </h3>
           <p>
-            {detail.accessibility_data.features.name}:{' '}
+            {detail.accessibility_data.features.name}:{" "}
             {detail.accessibility_data.features.levelInfo.level}
           </p>
           <span>Submitted by: {detail.submittedBy}</span>
           <div className="accessibility-game-details__submission__vote">
             <button
-              onClick={() => handleVote(detail.id, 'upvote', userId, setVotes)}
+              onClick={() => handleVote(detail.id, "upvote", userId, setVotes)}
             >
               Upvote
             </button>
@@ -77,7 +76,7 @@ const AccessibilityGameDetails: React.FC<AccessibilityGameDetailsProps> = ({
             </span>
             <button
               onClick={() =>
-                handleVote(detail.id, 'downvote', userId, setVotes)
+                handleVote(detail.id, "downvote", userId, setVotes)
               }
             >
               Downvote

@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import './SearchBar.css';
+import { useState } from "react";
+import "./SearchBar.css";
 
 const SearchBar = ({ onSearch }) => {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,13 +16,16 @@ const SearchBar = ({ onSearch }) => {
           <div className="search-bar">
             <label htmlFor="search-bar">Game title</label>
             <input
+              data-testid="search-bar-input"
               type="text"
               name="search-bar"
               id="search-bar"
               onChange={(e) => setInput(e.target.value)}
             />
           </div>
-          <button className="primary-button">Search</button>
+          <button data-testid="search-bar-submit" className="primary-button">
+            Search
+          </button>
         </div>
       </form>
     </>
