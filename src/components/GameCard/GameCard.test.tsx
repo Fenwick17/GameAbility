@@ -43,4 +43,14 @@ describe("GameCard", () => {
 
     expect(screen.getByTestId("game-metacritic")).toHaveTextContent("90");
   });
+
+  it("renders a game card with image", () => {
+    render(
+      <MemoryRouter>
+        <GameCard game={mockGame} />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByTestId("game-image")).toHaveAttribute("src", "img1.jpg");
+  });
 });

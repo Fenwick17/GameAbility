@@ -8,6 +8,7 @@ const GameCard = ({ game }) => {
   return (
     <li data-testid="game-card" className="game-list-item">
       <img
+        data-testid="game-image"
         src={game.background_image}
         alt={`${game.name} cover image`}
         className="game-list-item-cover-art"

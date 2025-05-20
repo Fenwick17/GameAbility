@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import './App.css';
-import { accessibilityFormFilters } from './data/accessibilityFormFilters';
-import SearchBar from './components/SearchBar/SearchBar';
-import GameList from './components/GameList/GameList';
-import SearchByAccessibilityFeature from './components/SearchByAccessibilityFeature/SearchByAccessibilityFeature';
-import { Routes, Route } from 'react-router';
-import GameDetail from './pages/GameDetail';
-import { mockGamesData } from './test/mockGamesData';
-import { Game } from './types/gamesData';
-import AccessibilityGameList from './components/AccessibilityGameList/AccessibilityGameList';
-import Header from './components/Header/Header';
+import { useState } from "react";
+import "./App.css";
+import { accessibilityFormFilters } from "./data/accessibilityFormFilters";
+import SearchBar from "./components/SearchBar/SearchBar";
+import GameList from "./components/GameList/GameList";
+import SearchByAccessibilityFeature from "./components/SearchByAccessibilityFeature/SearchByAccessibilityFeature";
+import { Routes, Route } from "react-router";
+import GameDetail from "./pages/GameDetail";
+import { mockGamesData } from "./test/mockGamesData";
+import { Game } from "./types/gamesData";
+import AccessibilityGameList from "./components/AccessibilityGameList/AccessibilityGameList";
+import Header from "./components/Header/Header";
 
 interface SelectedFilter {
   category: string;
@@ -17,7 +17,7 @@ interface SelectedFilter {
 }
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [gameList, setGameList] = useState([]);
   const [noResults, setNoResults] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -103,7 +103,9 @@ function App() {
               {isLoading && <p>Loading...</p>}
               {error && <p>Error: {error}</p>}
               {noResults && (
-                <p>No results found. Try a different search term.</p>
+                <p data-testid="no-results">
+                  No results found. Try a different search term.
+                </p>
               )}
               {gameList.length > 0 && (
                 <GameList gameList={gameList} searchTerm={searchTerm} />
