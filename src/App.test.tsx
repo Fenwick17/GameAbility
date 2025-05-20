@@ -1,7 +1,11 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { MemoryRouter } from "react-router";
 import App from "./App";
+
+const mockGameResults = {
+  results: [{ id: 123, name: "Test Game", released: "2023-01-01" }],
+};
 
 describe("App renders correctly", () => {
   it("should render the header", () => {
@@ -32,6 +36,12 @@ describe("App renders correctly", () => {
   });
 
   it("should render the game list after search", async () => {
+    global.fetch = vi.fn(() =>
+      Promise.resolve({
+        json: () => Promise.resolve(mockGameResults),
+      })
+    );
+
     render(
       <MemoryRouter>
         <App />
