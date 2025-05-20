@@ -1,84 +1,87 @@
-import { Game } from '../types/gamesData';
+import { Game } from "../types/gamesData";
 
 export const mockGamesData: Game[] = [
   {
     id: 1,
-    title: 'The Last of Us Part II',
-    platforms: ['PS4', 'PS5'],
-    genre: 'Action',
+    name: "Mock Game 1",
+    platforms: [
+      { platform: { id: 18, name: "PS4", slug: "playstation4" } },
+      { platform: { id: 187, name: "PS5", slug: "playstation5" } },
+    ],
+    genre: "Action",
     accessibility: [
       {
-        category: 'visual',
+        category: "visual",
         features: [
           {
-            key: 'colorblind_mode',
-            name: 'Colorblind Mode',
+            key: "colorblind_mode",
+            name: "Colorblind Mode",
             levelInfo: {
-              level: 'customizable',
-              notes: 'Multiple filters with test screen previews',
+              level: "customizable",
+              notes: "Multiple filters with test screen previews",
             },
           },
           {
-            key: 'subtitles',
-            name: 'Subtitles',
+            key: "subtitles",
+            name: "Subtitles",
             levelInfo: {
-              level: 'advanced',
-              notes: 'Size, color, speaker labels, background opacity',
+              level: "advanced",
+              notes: "Size, color, speaker labels, background opacity",
             },
           },
         ],
       },
       {
-        category: 'controls',
+        category: "controls",
         features: [
           {
-            key: 'remappable_controls',
-            name: 'Remappable Controls',
+            key: "remappable_controls",
+            name: "Remappable Controls",
             levelInfo: {
-              level: 'customizable',
-              notes: 'Remap every input including gestures',
+              level: "customizable",
+              notes: "Remap every input including gestures",
             },
           },
           {
-            key: 'one_handed_mode',
-            name: 'One-Handed Mode',
+            key: "one_handed_mode",
+            name: "One-Handed Mode",
             levelInfo: {
-              level: 'customizable',
-              notes: 'Preset layouts + remapping',
-            },
-          },
-        ],
-      },
-      {
-        category: 'audio',
-        features: [
-          {
-            key: 'narration',
-            name: 'Narration',
-            levelInfo: {
-              level: 'advanced',
-              notes: 'Menus, HUD, and gameplay narration',
+              level: "customizable",
+              notes: "Preset layouts + remapping",
             },
           },
         ],
       },
       {
-        category: 'gameplay',
+        category: "audio",
         features: [
           {
-            key: 'difficulty_options',
-            name: 'Difficulty Options',
+            key: "narration",
+            name: "Narration",
             levelInfo: {
-              level: 'customizable',
+              level: "advanced",
+              notes: "Menus, HUD, and gameplay narration",
+            },
+          },
+        ],
+      },
+      {
+        category: "gameplay",
+        features: [
+          {
+            key: "difficulty_options",
+            name: "Difficulty Options",
+            levelInfo: {
+              level: "customizable",
               notes:
-                'Individual sliders for enemy aggression, aim assist, stealth',
+                "Individual sliders for enemy aggression, aim assist, stealth",
             },
           },
           {
-            key: 'qte_toggle',
-            name: 'QTE Toggle',
+            key: "qte_toggle",
+            name: "QTE Toggle",
             levelInfo: {
-              level: 'basic',
+              level: "basic",
             },
           },
         ],
@@ -87,31 +90,34 @@ export const mockGamesData: Game[] = [
   },
   {
     id: 2,
-    title: 'Stardew Valley',
-    platforms: ['PC', 'Switch', 'Xbox', 'PS5'],
-    genre: 'Simulation',
+    name: "Stardew Valley",
+    platforms: [
+      { platform: { id: 18, name: "PS4", slug: "playstation4" } },
+      { platform: { id: 187, name: "PS5", slug: "playstation5" } },
+    ],
+    genre: "Simulation",
     accessibility: [
       {
-        category: 'visual',
+        category: "visual",
         features: [
           {
-            key: 'subtitles',
-            name: 'Subtitles',
+            key: "subtitles",
+            name: "Subtitles",
             levelInfo: {
-              level: 'basic',
+              level: "basic",
             },
           },
         ],
       },
       {
-        category: 'controls',
+        category: "controls",
         features: [
           {
-            key: 'remappable_controls',
-            name: 'Remappable Controls',
+            key: "remappable_controls",
+            name: "Remappable Controls",
             levelInfo: {
-              level: 'basic',
-              notes: 'Keyboard + controller mapping',
+              level: "basic",
+              notes: "Keyboard + controller mapping",
             },
           },
         ],
@@ -120,73 +126,76 @@ export const mockGamesData: Game[] = [
   },
   {
     id: 3,
-    title: 'God of War Ragnarok',
-    platforms: ['PS5'],
-    genre: 'Action',
+    name: "God of War Ragnarok",
+    platforms: [
+      { platform: { id: 18, name: "PS4", slug: "playstation4" } },
+      { platform: { id: 187, name: "PS5", slug: "playstation5" } },
+    ],
+    genre: "Action",
     accessibility: [
       {
-        category: 'visual',
+        category: "visual",
         features: [
           {
-            key: 'colorblind_mode',
-            name: 'Colorblind Mode',
+            key: "colorblind_mode",
+            name: "Colorblind Mode",
             levelInfo: {
-              level: 'customizable',
-              notes: 'Protanopia, Deuteranopia, Tritanopia filters',
+              level: "customizable",
+              notes: "Protanopia, Deuteranopia, Tritanopia filters",
             },
           },
           {
-            key: 'subtitles',
-            name: 'Subtitles',
+            key: "subtitles",
+            name: "Subtitles",
             levelInfo: {
-              level: 'customizable',
-              notes: 'Fonts, color, speaker names, scaling',
+              level: "customizable",
+              notes: "Fonts, color, speaker names, scaling",
             },
           },
         ],
       },
       {
-        category: 'controls',
+        category: "controls",
         features: [
           {
-            key: 'remappable_controls',
-            name: 'Remappable Controls',
+            key: "remappable_controls",
+            name: "Remappable Controls",
             levelInfo: {
-              level: 'customizable',
-              notes: 'Full control + UI remap',
+              level: "customizable",
+              notes: "Full control + UI remap",
             },
           },
         ],
       },
       {
-        category: 'gameplay',
+        category: "gameplay",
         features: [
           {
-            key: 'difficulty_options',
-            name: 'Difficulty Options',
+            key: "difficulty_options",
+            name: "Difficulty Options",
             levelInfo: {
-              level: 'advanced',
-              notes: 'Accessible mode, puzzle timing assists',
+              level: "advanced",
+              notes: "Accessible mode, puzzle timing assists",
             },
           },
           {
-            key: 'qte_toggle',
-            name: 'QTE Toggle',
+            key: "qte_toggle",
+            name: "QTE Toggle",
             levelInfo: {
-              level: 'basic',
+              level: "basic",
             },
           },
         ],
       },
       {
-        category: 'audio',
+        category: "audio",
         features: [
           {
-            key: 'narration',
-            name: 'Narration',
+            key: "narration",
+            name: "Narration",
             levelInfo: {
-              level: 'advanced',
-              notes: 'Menu narration + screen reader support',
+              level: "advanced",
+              notes: "Menu narration + screen reader support",
             },
           },
         ],
@@ -195,41 +204,44 @@ export const mockGamesData: Game[] = [
   },
   {
     id: 4,
-    title: 'Celeste',
-    platforms: ['PC', 'Switch', 'Xbox', 'PS5'],
-    genre: 'Platformer',
+    name: "Celeste",
+    platforms: [
+      { platform: { id: 18, name: "PS4", slug: "playstation4" } },
+      { platform: { id: 187, name: "PS5", slug: "playstation5" } },
+    ],
+    genre: "Platformer",
     accessibility: [
       {
-        category: 'controls',
+        category: "controls",
         features: [
           {
-            key: 'remappable_controls',
-            name: 'Remappable Controls',
+            key: "remappable_controls",
+            name: "Remappable Controls",
             levelInfo: {
-              level: 'advanced',
-              notes: 'Full keyboard/controller support',
+              level: "advanced",
+              notes: "Full keyboard/controller support",
             },
           },
           {
-            key: 'one_handed_mode',
-            name: 'One-Handed Mode',
+            key: "one_handed_mode",
+            name: "One-Handed Mode",
             levelInfo: {
-              level: 'basic',
-              notes: 'Preset input scheme available',
+              level: "basic",
+              notes: "Preset input scheme available",
             },
           },
         ],
       },
       {
-        category: 'gameplay',
+        category: "gameplay",
         features: [
           {
-            key: 'difficulty_options',
-            name: 'Difficulty Options',
+            key: "difficulty_options",
+            name: "Difficulty Options",
             levelInfo: {
-              level: 'customizable',
+              level: "customizable",
               notes:
-                'Assist Mode with toggle options: invincibility, game speed',
+                "Assist Mode with toggle options: invincibility, game speed",
             },
           },
         ],

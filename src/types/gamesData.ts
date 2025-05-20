@@ -1,5 +1,5 @@
 export interface AccessibilityFeatureLevel {
-  level: 'basic' | 'advanced' | 'customizable';
+  level: "basic" | "advanced" | "customizable";
   notes?: string;
 }
 
@@ -10,14 +10,22 @@ export interface AccessibilityFeature {
 }
 
 export interface AccessibilityCategory {
-  category: 'visual' | 'controls' | 'audio' | 'cognitive' | 'gameplay';
+  category: "visual" | "controls" | "audio" | "cognitive" | "gameplay";
   features: AccessibilityFeature[];
 }
 
+type PlatformInfo = {
+  platform: {
+    id: number;
+    name: string;
+    slug: string;
+  };
+};
+
 export interface Game {
   id: number;
-  title: string;
-  platforms: string[];
+  name: string;
+  platforms: PlatformInfo[];
   genre: string;
   accessibility: AccessibilityCategory[];
 }

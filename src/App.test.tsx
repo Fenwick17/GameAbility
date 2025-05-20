@@ -59,4 +59,29 @@ describe("App renders correctly", () => {
       expect(screen.getByTestId("game-list")).toBeInTheDocument();
     });
   });
+
+  it("should render no results", async () => {
+    global.fetch = vi.fn(() =>
+      Promise.resolve({
+        json: () => Promise.resolve({ results: [] }),
+      })
+    );
+
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
+
+    const searchInput = screen.getByTestId("search-bar-input");
+    const searchButton = screen.getByTestId("search-bar-submit");
+    fireEvent.change(searchInput, {
+      target: { value: "No Results" },
+    });
+    fireEvent.click(searchButton);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("no-results")).toBeInTheDocument();
+    });
+  });
 });

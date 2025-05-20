@@ -1,5 +1,5 @@
-import { format } from 'date-fns';
-import './GameDetails.css';
+import { format, isValid, parseISO } from "date-fns";
+import "./GameDetails.css";
 
 interface Platform {
   platform: {
@@ -22,19 +22,16 @@ interface GameDetailsProps {
 }
 
 const GameDetails: React.FC<GameDetailsProps> = ({ game }) => {
-  const formattedDate = format(new Date(game.released), 'dd MMMM yyyy');
+  const releaseDate = game.released ? parseISO(game.released) : null;
+  const formattedDate =
+    releaseDate && isValid(releaseDate)
+      ? format(releaseDate, "MMMM dd, yyyy")
+      : "Unknown release date";
 
   return (
     <>
-      <h1>{game.name}</h1>
-      <p>{formattedDate}</p>
-      {/* <img
-        className="game-image"
-        src={game.background_image}
-        alt={`Cover image for ${game.name}`}
-      /> */}
-      {/* <p>{game.rating}</p> */}
-      {/* <p>{game.description}</p> */}
+      <h1 data-testid="game-name">{game.name}</h1>
+      <p data-testid="game-released">{formattedDate}</p>
       <ul>
         {game.platforms.map((platform) => (
           <li key={platform.platform.name}>{platform.platform.name}</li>
